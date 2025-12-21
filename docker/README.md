@@ -8,9 +8,9 @@ It features:
 - User Mapping: Files created in the container are owned by your host user.
 
 ## 1. Prerequisites
-* OS: Ubuntu 22.04 or 24.04 LTS.
-* GPU: NVIDIA GPU (Optional, but recommended for GUI performance).
-* Internet: Required for downloading base images and cloning repos.
+* OS: Tested on Ubuntu, may work on others. 
+* GPU: Optional, but recommended for GUI performance.
+* Internet: Required for downloading docker images and/or cloning repos.
 
 ## 2. System Setup (One-Time)
 
@@ -64,7 +64,31 @@ sudo systemctl restart docker
 ```
 
 
-## 3. Building and Running
+## 3A. Usage by pulling prebuilt images
+Ensure you have the NVIDIA Container Toolkit installed and allow GUI access:
+
+```bash
+xhost +local:docker
+```
+
+Set your Data Paths
+Users define where their data lives on their own machine:
+
+```bash
+export MOLA_DATA_DIR=/home/user/my_datasets
+```
+
+You only need to run:
+
+```bash
+cd docker/...
+docker compose up -d
+```
+
+The image will be automatically pulled from the registry, volumes will be mapped, and the ROS 2 nodes and MOLA CLI/GUI applications will be ready.
+
+
+## 3B. Building and Running locally
 
 Navigate to the project directory and run: 
 
