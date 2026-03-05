@@ -1046,7 +1046,7 @@ void MolaViz::spinOnce()
 }
 
 // ---------------------------------------------------------------------------
-// Dataset UI - ported to create_subwindow_from_description
+// Dataset UI
 // ---------------------------------------------------------------------------
 
 void MolaViz::dataset_ui_check_new_modules()
@@ -1927,8 +1927,8 @@ std::future<bool> MolaViz::execute_custom_code_on_background_scene(
         catch (const std::exception& e)
         {
           MRPT_LOG_ERROR_STREAM(
-                            "Exception in execute_custom_code_on_background_scene():\n"
-                            << e.what());
+              "Exception in execute_custom_code_on_background_scene():\n"
+              << e.what());
           return false;
         }
       });
